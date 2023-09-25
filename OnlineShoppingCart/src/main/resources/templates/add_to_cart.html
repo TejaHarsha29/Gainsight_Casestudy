@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container">
+    <div class ="row">
+        <h1>Add required items to cart</h1>
+    </div>
+
+
+    <h1>Product Search</h1>
+
+
+
+    <form th:action="@{/search}" method="get">
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput" name="inputText" />
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Weight</th>
+            <th>Product Price</th>
+            <th>Product Category</th>
+            <th>Actions</th>
+        </tr>
+
+
+
+        <tbody>
+        <tr th:each = "product : ${products}">
+            <td th:text = "${product.product_id}"></td>
+            <td th:text = "${product.product_name}"></td>
+            <td th:text = "${product.product_description}"></td>
+            <td th:text = "${product.product_price}"></td>
+            <td th:text = "${product.product_category}"></td>
+            <td th:text = "${product.product_weight}"></td>
+            <td>
+
+                <a th:href = "@{/addToCart/{id}(id=${product.product_id})}" class="btn btn-primary">Add</a>
+
+                <a th:href = "@{/removeFromCart/{id}(id=${product.product_id})}" class="btn btn-danger">Remove</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+
+
+        </thead>
+    </table>
+</div>
+
+
+
+<div class = "row">
+    <div class="col-lg-3 centre">
+        <a th:href = "@{/cart}" class="btn btn-primary btn-small mb-3">Show Cart</a>
+    </div>
+</div>
+
+</body>
+</html>

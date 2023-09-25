@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+</head>
+<body>
+  <div class = "containre">
+    <div class = "row">
+      <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+        <h1 class="centre">Add product</h1>
+
+        <div class="card-body">
+          <form th:action="@{/products}" th:object = "${product}" method="post">
+            <div class="form-group">
+              <label>product Name</label>
+              <input type="text" name="productName" th:field = "*{product_name}" class="form-control" placeholder="Enter the Product Name">
+            </div>
+            <div class="form-group">
+              <label>product Descrioption</label>
+              <input type="text" name="productDescrioption" th:field = "*{product_description}" class="form-control" placeholder="Enter the Product Description">
+            </div>
+            <div class="form-group">
+              <label>product Category</label>
+              <input type="text" name="productCategory" th:field = "*{product_category}" class="form-control" placeholder="Enter the Product Category">
+            </div>
+            <div class="form-group">
+              <label>product Price</label>
+              <input type="text" name="productprice" th:field = "*{product_price}" class="form-control" placeholder="Enter the Product Price">
+            </div>
+            <div class="form-group">
+              <label>product Weight</label>
+              <input type="text" name="productWeight" th:field = "*{product_weight}" class="form-control" placeholder="Enter the Product Weight">
+            </div>
+
+            <div class="box-footer">
+              <button type="submit" class = "btn btn-primary">Add Product</button>
+            </div>
+
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

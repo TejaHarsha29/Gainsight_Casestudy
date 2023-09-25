@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout Page</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container">
+<div class = "row">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+        <h1 class="centre">Update product</h1>
+
+        <div class="card-body">
+            <form th:action="@{/checkout/start}" th:object = "${checkoutdetails}" method="post">
+                <div class="form-group">
+                    <label>first_name</label>
+                    <input type="text" name="first_name" th:field = "*{first_name}" class="form-control" placeholder="Enter the Product Name">
+                </div>
+                <div class="form-group">
+                    <label>last_name</label>
+                    <input type="text" name="last_name" th:field = "*{last_name}" class="form-control" placeholder="Enter the Product Description">
+                </div>
+                <div class="form-group">
+                    <label>shipping_address</label>
+                    <input type="text" name="shipping_address" th:field = "*{shipping_address}" class="form-control" placeholder="Enter the Product Category">
+                </div>
+
+
+                <div class="box-footer">
+                    <button type="submit" class = "btn btn-primary">Complete Checkout</button>
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
